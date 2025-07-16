@@ -41,7 +41,7 @@ contract tokenSend {
 }
 ```
 
-[Link to code](https://github.com/ultjeremy/3DTada-Internship-Research/blob/af169c5949e71b2dddf7ae1776c6614731280076/contracts/token_send.sol)
+[[Link to code]](https://github.com/ultjeremy/3DTada-Internship-Research/blob/af169c5949e71b2dddf7ae1776c6614731280076/contracts/token_send.sol)
 
 In this example, you can call the `sendToken` function, inputting a recipient's address, to send a specified `msg.value` amount of currency to a chosen recipient. I implemented this in Remix as a smart contract, using Solidity.
 
@@ -64,7 +64,7 @@ function burn(uint256 _value) returns (bool success) {
         return true;
     }
 ```
-[Link to code](https://github.com/ultjeremy/3DTada-Internship-Research/blob/a68c4ee7d554a00e53dd89a71a5a8003ec8a45ca/contracts/BNB.sol#L110-L117)
+[[Link to code]](https://github.com/ultjeremy/3DTada-Internship-Research/blob/a68c4ee7d554a00e53dd89a71a5a8003ec8a45ca/contracts/BNB.sol#L110-L117)
 
 In this example, a `burn` function can be called that removes an inputted amount of BNB from the caller's account, updating the total supply and returning whether the operation was successful or not. This is again implemented with Solidity as a smart contract.
 
