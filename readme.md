@@ -88,5 +88,5 @@ This block of code queries the Binance API to find and retrieve the latest price
 This output is formatted as an easily accessible python dictionary. The API can also access past Bitcoin values and many other crypto currencies, allowing the automation of stock trading to be easily implemented using the Binance API.
 
 ---
-title: Helium (HNT)
+Helium (HNT)
 ---
