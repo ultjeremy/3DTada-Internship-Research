@@ -82,6 +82,10 @@ print(btc_price)
 This block of code queries the Binance API to find and retrieve the latest price of Bitcoin. An example output:
 
 ```
+
+---
+title: Helium (HNT)
+---
 {'symbol': 'BTCUSDT', 'price': '117,623.40'}
 ```
 
