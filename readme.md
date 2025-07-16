@@ -41,6 +41,8 @@ contract tokenSend {
 }
 ```
 
+https://github.com/ultjeremy/3DTada-Internship-Research/blob/af169c5949e71b2dddf7ae1776c6614731280076/contracts/token_send.sol
+
 In this example, you can call the `sendToken` function, inputting a recipient's address, to send a specified `msg.value` amount of currency to a chosen recipient. I implemented this in Remix as a smart contract, using Solidity.
 
 ### BNB Burning:
