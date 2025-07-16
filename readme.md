@@ -13,7 +13,7 @@ BNB transactions largely operate with on-chain logic, where transactions are rec
 
 BNB can be interacted with through smart contracts that allow many transactions to occur, providing many benefits to users. I coded a small example of a smart contract through Solidity for transfering tokens, which can be used for transfering BNB, Ether, and other currencies across accounts. 
 
-```
+```solidity
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.7.0 <0.9.0;
 
@@ -54,7 +54,7 @@ Another large token interaction example with the BNB token is the auto-burning f
 
 A short example of BNB burning from Etherscan can be found [[here]](https://etherscan.io/token/0xB8c77482e45F1F44dE1745F52C74426C631bDD52#code), I have pulled an excerpt showing the specific burning process:
 
-```
+```solidity
 function burn(uint256 _value) returns (bool success) {
 	if (balanceOf[msg.sender] < _value) throw;            // Check if the sender has enough
 		if (_value <= 0) throw; 
@@ -72,9 +72,9 @@ In this example, a `burn` function can be called that removes an inputted amount
 
 A large part of the Binance Exchange is also the Binance API. Through its utilization, users can easily fetch information on various crypto currencies, and even create automated trading programs to have bots make trades on behalf of the trader.
 
-One good method for working with the Binance API is through the python library `python-binance`. A simple example checking the latest price of Bitcoin is shown, taken from AlgoTrading101's guide on the Binance Python API [[Link]](https://algotrading101.com/learn/binance-python-api-guide/):
+One good method for working with the Binance API is through the python library `python-binance`. A simple example checking the latest price of Bitcoin is shown, taken from AlgoTrading101's guide on the Binance Python API [[here]](https://algotrading101.com/learn/binance-python-api-guide/):
 
-```
+```python
 btc_price = client.get_symbol_ticker(symbol="BTCUSDT")
 print(btc_price)
 ```
