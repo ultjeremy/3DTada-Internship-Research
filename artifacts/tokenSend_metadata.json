@@ -83,11 +83,11 @@
 	},
 	"sources": {
 		"contracts/token_send.sol": {
-			"keccak256": "0x297f51a07058074fbce750cf3bcb4184167927c1d3ddec612ec274e59ae89673",
+			"keccak256": "0x57bb1154b34070bb9b851a5421605e0f214a7f95042e367eed3128467059ecd4",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://15e675142c491962a72248ba0a900d9f984153fcb2a154a22de28e0d211d7e1c",
-				"dweb:/ipfs/QmeXa54QfWZ3rLfjRzJLSKpB9tJrJb5LuTmEaPUQbcgBkR"
+				"bzz-raw://7eaa5b2a4d7cf13b5c8750682401452009b1a48cea9e3d320a6347c12ee546e6",
+				"dweb:/ipfs/QmRHKHbak41eQTUwHypQyfYBK5knxKGH3t1z7MtfvhPYRW"
 			]
 		}
 	},
