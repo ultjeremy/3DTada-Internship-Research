@@ -5,13 +5,13 @@ In this GitHub project, I am exploring various well-known and real-world tokens 
 ---
 ## Binance (BNB):
 
-Binance utilizes smart contracts with their BNB Smart Chain to facilitate the building of dApps to allow developers to create projects taking advantage of the benefits that the BNB token provides. The BNB Smart Chain utilizes the BEP-20 token standard, which is very similar to the ERC-20 standard. The standard acts like a guide and blueprint for how to utilize the BEP-20 standard.
+Binance utilizes smart contracts with their BNB Smart Chain to facilitate the building of dApps, allowing developers to create projects that take advantage of the benefits of the BNB token. The BNB Smart Chain utilizes the BEP-20 token standard, which is very similar to the ERC-20 standard. The standard acts like a guide and blueprint for how to create tokens for users of the Binance Exchange.
 
 BNB transactions largely operate with on-chain logic, where transactions are recorded on the BNB chain and executed by smart contracts directly on the chain. This follows from the fact that BNB is the native currency on the Binance Exchange, powering transactions and paying for fees.
 
 ### Token Sending:
 
-BNB can be interacted with through smart contracts that allow many transactions to occur, providing many benefits to users. I coded a small example of a smart contract through Solidity of transfering tokens, which can be used for transfering BNB, Ether, and other currencies across accounts. 
+BNB can be interacted with through smart contracts that allow many transactions to occur, providing many benefits to users. I coded a small example of a smart contract through Solidity for transfering tokens, which can be used for transfering BNB, Ether, and other currencies across accounts. 
 
 ```
 // SPDX-License-Identifier: GPL-3.0
@@ -41,10 +41,9 @@ contract tokenSend {
         }
 }
 ```
-
 [[Link to code]](https://github.com/ultjeremy/3DTada-Internship-Research/blob/af169c5949e71b2dddf7ae1776c6614731280076/contracts/token_send.sol)
 
-In this example, you can call the `sendToken` function, inputting a recipient's address, to send a specified `msg.value` amount of currency to a chosen recipient. I implemented this in Remix as a smart contract, using Solidity.
+In this example, you can call the `sendToken` function, inputting a recipient's address, to send a specified `msg.value` amount of currency to a chosen recipient. I implemented this in Solidity as a smart contract, using the Remix IDE.
 
 ### BNB Burning:
 
@@ -53,7 +52,7 @@ Another large token interaction example with the BNB token is the auto-burning f
 1. Burning a portion of gas fees spent with BNB on the BNB Chain
 2. Quarterly BNB burning events
 
-A short example of BNB burning from Etherscan can be found [here](https://etherscan.io/token/0xB8c77482e45F1F44dE1745F52C74426C631bDD52#code), I have pulled an excerpt showing the specific burning process:
+A short example of BNB burning from Etherscan can be found [[here]](https://etherscan.io/token/0xB8c77482e45F1F44dE1745F52C74426C631bDD52#code), I have pulled an excerpt showing the specific burning process:
 
 ```
 function burn(uint256 _value) returns (bool success) {
@@ -65,7 +64,7 @@ function burn(uint256 _value) returns (bool success) {
         return true;
     }
 ```
-[[Link to code]](https://github.com/ultjeremy/3DTada-Internship-Research/blob/a68c4ee7d554a00e53dd89a71a5a8003ec8a45ca/contracts/BNB.sol#L110-L117)
+[[Repo Link to code]](https://github.com/ultjeremy/3DTada-Internship-Research/blob/a68c4ee7d554a00e53dd89a71a5a8003ec8a45ca/contracts/BNB.sol#L110-L117)
 
 In this example, a `burn` function can be called that removes an inputted amount of BNB from the caller's account, updating the total supply and returning whether the operation was successful or not. This is again implemented with Solidity as a smart contract.
 
@@ -73,7 +72,7 @@ In this example, a `burn` function can be called that removes an inputted amount
 
 A large part of the Binance Exchange is also the Binance API. Through its utilization, users can easily fetch information on various crypto currencies, and even create automated trading programs to have bots make trades on behalf of the trader.
 
-One good method for working with the Binance API is through the python library `python-binance`. A simple example checking the latest price of Bitcoin is shown:
+One good method for working with the Binance API is through the python library `python-binance`. A simple example checking the latest price of Bitcoin is shown, taken from AlgoTrading101's guide on the Binance Python API [[Link]](https://algotrading101.com/learn/binance-python-api-guide/):
 
 ```
 btc_price = client.get_symbol_ticker(symbol="BTCUSDT")
@@ -90,4 +89,6 @@ This output is formatted as an easily accessible python dictionary. The API can 
 
 ---
 ## Helium (HNT):
+
+
 
