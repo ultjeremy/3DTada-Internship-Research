@@ -100,7 +100,11 @@ Proof-of-Coverage is Helium's main consensus algorithm that is used to verify th
 
 Powerful machines, called Oracles, are deployed across the Helium Network to test and verify results of Hotspots, and report back to the Helium Network to issue rewards. These Oracles operate off-chain, allowing for processing to be completed much quicker and without restrictions of smart contracts. Essentially, since smart contracts operate on-chain, which ensures transperency and thoroughness, it is not the best for Oracles which are complex algorithms that would be slow and expensive to run on the block-chain. So, the bulk of the work is done off-chain, where the final results are posted on the blockchain for the smart contracts to utilize.
 
-The PoC scheme is structured in a way to give higher rewards to Hotspots in less dense and concentrated areas. 
+The PoC scheme is structured in a way to give higher rewards to Hotspots in less dense and concentrated areas. PoC has a system that judges an area's density and calculates the effectiveness of each Hotspot, scaling rewards accordingly.
+
+<img width="317" height="397" alt="image" src="https://github.com/user-attachments/assets/12737c58-201c-4761-a4a8-8e17cfdf3e78" />
+[[Model Link]](https://docs.helium.com/iot/proof-of-coverage-roadmap)
+
 
 
 
