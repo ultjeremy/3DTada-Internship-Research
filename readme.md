@@ -90,5 +90,7 @@ This output is formatted as an easily accessible python dictionary. The API can 
 ---
 ## Helium (HNT):
 
+HNT was initially natively built on the Helium blockchain. In 2023, Helium migrated to Solana and adopted the SPL token standard. Now, HNT utilizes Rust for its core software activities on the blockchain, through Rust programs (essentially smart contracts).
+
 
 
