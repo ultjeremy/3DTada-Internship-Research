@@ -106,6 +106,8 @@ The PoC scheme is structured in a way to give higher rewards to Hotspots in less
 
 [[Model Link]](https://docs.helium.com/iot/proof-of-coverage-roadmap)
 
+A beacon is essentially a means to prove a Hotspot exists and measure its performance for wireless coverage. The Verifier Oracle is a method to report and measure Proof-of-Coverage activity off-chain, ensuring only legitimate Hotspots get rewarded. Lastly, the Rewards Oracle is responsible for actually distributing HNT rewards based on verified network activity.
+
 ### Reward Fanout:
 
 The following Rust function is taken from the Helium Program Library. It is a function designed for initializing the structure for distributing tokens, setting up the pool for ditrubution. [[Link to Code]](https://github.com/helium/helium-program-library/blob/6c4189fdca73cd6bc0e3ac4886d9fd42613ba8a4/programs/fanout/src/instructions/initialize_fanout_v0.rs)
@@ -214,7 +216,7 @@ This part initializes all state variables to track tokens and authority.
 }
 ```
 
-Essentially, this function serves to set up the process for a smart contract to distribute tokens amongst a group. It utilizes NFTs to represent the flow of tokens being distributed. This function overall initializes a fanout pool to later distribute token accordingly.
+Essentially, this function serves to set up the process for a smart contract to distribute tokens amongst a group. It utilizes NFTs to represent the flow of tokens being distributed. This function overall initializes a fanout pool to later distribute token accordingly. This function enables the Rewards Oracle to actually split and distribute the HNT in a way that matches Solana’s on-chain design.
 
 
 
