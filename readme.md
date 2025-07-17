@@ -108,6 +108,9 @@ The PoC scheme is structured in a way to give higher rewards to Hotspots in less
 
 ### Reward Fanout:
 
+The following Rust function is taken from the Helium Program Library (helium-program-library/programs/fanout/src/instructions
+/initialize_fanout_v0.rs) [[Link to Code]](https://github.com/helium/helium-program-library/blob/6c4189fdca73cd6bc0e3ac4886d9fd42613ba8a4/programs/fanout/src/instructions/initialize_fanout_v0.rs)
+
 ```rust
 pub fn handler(ctx: Context<InitializeFanoutV0>, args: InitializeFanoutArgsV0) -> Result<()> {
   let signer_seeds: &[&[&[u8]]] = &[&[b"fanout", args.name.as_bytes(), &[ctx.bumps.fanout]]];
