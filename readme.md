@@ -106,6 +106,99 @@ The PoC scheme is structured in a way to give higher rewards to Hotspots in less
 
 [[Model Link]](https://docs.helium.com/iot/proof-of-coverage-roadmap)
 
+### Reward Fanout:
+
+```rust
+pub fn handler(ctx: Context<InitializeFanoutV0>, args: InitializeFanoutArgsV0) -> Result<()> {
+  let signer_seeds: &[&[&[u8]]] = &[&[b"fanout", args.name.as_bytes(), &[ctx.bumps.fanout]]];
+
+  token::mint_to(
+    CpiContext::new_with_signer(
+      ctx.accounts.token_program.to_account_info(),
+      MintTo {
+        mint: ctx.accounts.collection.to_account_info(),
+        to: ctx.accounts.collection_account.to_account_info(),
+        authority: ctx.accounts.fanout.to_account_info(),
+      },
+      signer_seeds,
+    ),
+    1,
+  )?;
+
+  create_metadata_accounts_v3(
+    CpiContext::new_with_signer(
+      ctx
+        .accounts
+        .token_metadata_program
+        .to_account_info()
+        .clone(),
+      CreateMetadataAccountsV3 {
+        metadata: ctx.accounts.metadata.to_account_info().clone(),
+        mint: ctx.accounts.collection.to_account_info().clone(),
+        mint_authority: ctx.accounts.fanout.to_account_info().clone(),
+        payer: ctx.accounts.payer.to_account_info().clone(),
+        update_authority: ctx.accounts.fanout.to_account_info().clone(),
+        system_program: ctx.accounts.system_program.to_account_info().clone(),
+        rent: ctx.accounts.rent.to_account_info().clone(),
+      },
+      signer_seeds,
+    ),
+    DataV2 {
+      name: args.name.clone(),
+      symbol: String::from("FANOUT"),
+      uri:
+        "https://shdw-drive.genesysgo.net/6tcnBSybPG7piEDShBcrVtYJDPSvGrDbVvXmXKpzBvWP/fanout.json"
+          .to_string(),
+      seller_fee_basis_points: 0,
+      creators: None,
+      collection: None,
+      uses: None,
+    },
+    true,
+    true,
+    Some(CollectionDetails::V2 { padding: [0; 8] }),
+  )?;
+
+  create_master_edition_v3(
+    CpiContext::new_with_signer(
+      ctx
+        .accounts
+        .token_metadata_program
+        .to_account_info()
+        .clone(),
+      CreateMasterEditionV3 {
+        edition: ctx.accounts.master_edition.to_account_info().clone(),
+        mint: ctx.accounts.collection.to_account_info().clone(),
+        update_authority: ctx.accounts.fanout.to_account_info().clone(),
+        mint_authority: ctx.accounts.fanout.to_account_info().clone(),
+        metadata: ctx.accounts.metadata.to_account_info().clone(),
+        payer: ctx.accounts.payer.to_account_info().clone(),
+        token_program: ctx.accounts.token_program.to_account_info().clone(),
+        system_program: ctx.accounts.system_program.to_account_info().clone(),
+        rent: ctx.accounts.rent.to_account_info().clone(),
+      },
+      signer_seeds,
+    ),
+    Some(0),
+  )?;
+
+  ctx.accounts.fanout.set_inner(FanoutV0 {
+    authority: ctx.accounts.authority.key(),
+    token_account: ctx.accounts.token_account.key(),
+    membership_mint: ctx.accounts.membership_mint.key(),
+    fanout_mint: ctx.accounts.fanout_mint.key(),
+    membership_collection: ctx.accounts.collection.key(),
+    name: args.name,
+    total_shares: ctx.accounts.membership_mint.supply,
+    total_staked_shares: 0,
+    last_snapshot_amount: ctx.accounts.token_account.amount,
+    total_inflow: ctx.accounts.token_account.amount,
+    bump_seed: ctx.bumps.fanout,
+  });
+
+  Ok(())
+}
+```
 
 
 
