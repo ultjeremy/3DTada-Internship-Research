@@ -103,6 +103,7 @@ Powerful machines, called Oracles, are deployed across the Helium Network to tes
 The PoC scheme is structured in a way to give higher rewards to Hotspots in less dense and concentrated areas. PoC has a system that judges an area's density and calculates the effectiveness of each Hotspot, scaling rewards accordingly.
 
 <img width="317" height="397" alt="image" src="https://github.com/user-attachments/assets/12737c58-201c-4761-a4a8-8e17cfdf3e78" />
+
 [[Model Link]](https://docs.helium.com/iot/proof-of-coverage-roadmap)
 
 
