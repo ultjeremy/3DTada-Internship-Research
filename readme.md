@@ -90,7 +90,17 @@ This output is formatted as an easily accessible python dictionary. The API can 
 ---
 ## Helium (HNT):
 
-HNT was initially natively built on the Helium blockchain. In 2023, Helium migrated to Solana and adopted the SPL token standard. Now, HNT utilizes Rust for its core software activities on the blockchain, through Rust programs (essentially smart contracts).
+HNT was initially natively built on the Helium blockchain. In 2023, Helium migrated to Solana and adopted the SPL token standard. Like Binance's token standard. SPL is very similar in structure to ERC-20. Now, HNT utilizes Rust for its core software activities on the blockchain, through Rust programs (essentially smart contracts). 
+
+The core functionality of HNT (token transfers, Proof-of-Coverage rewards, Data Credits), is handled on-chain, which some computationally intensive and data-driven tasks are handled off-chain. Some examples of this include the validation of Proof-of-Coverage, and the storage and processing of data.
+
+### Proof-of-Coverage (PoC):
+
+Proof-of-Coverage is Helium's main consensus algorithm that is used to verify the legitimacy of Hotspots and distribute HNT rewards based on the wireless coverage generated. From the Helium Documentation: "Proof-of-Coverage incentivizes Hotspot Operators to deploy Hotspots in underserved areas and report their deployments accurately so that users of the Helium Network can see where coverage is likely to be available." [[Link]](https://docs.helium.com/iot/proof-of-coverage/)
+
+Powerful machines, called Oracles, are deployed across the Helium Network to test and verify results of Hotspots, and report back to the Helium Network to issue rewards. These Oracles operate off-chain, allowing for processing to be completed much quicker and without restrictions of smart contracts. Essentially, since smart contracts operate on-chain, which ensures transperency and thoroughness, it is not the best for Oracles which are complex algorithms that would be slow and expensive to run on the block-chain. So, the bulk of the work is done off-chain, where the final results are posted on the blockchain for the smart contracts to utilize.
+
+The PoC scheme is structured in a way to give higher rewards to Hotspots in less dense and concentrated areas. 
 
 
 
