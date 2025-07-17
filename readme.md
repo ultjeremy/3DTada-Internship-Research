@@ -108,13 +108,15 @@ The PoC scheme is structured in a way to give higher rewards to Hotspots in less
 
 ### Reward Fanout:
 
-The following Rust function is taken from the Helium Program Library (helium-program-library/programs/fanout/src/instructions
-/initialize_fanout_v0.rs) [[Link to Code]](https://github.com/helium/helium-program-library/blob/6c4189fdca73cd6bc0e3ac4886d9fd42613ba8a4/programs/fanout/src/instructions/initialize_fanout_v0.rs)
+The following Rust function is taken from the Helium Program Library. It is a function designed for initializing the structure for distributing tokens, setting up the pool for ditrubution. [[Link to Code]](https://github.com/helium/helium-program-library/blob/6c4189fdca73cd6bc0e3ac4886d9fd42613ba8a4/programs/fanout/src/instructions/initialize_fanout_v0.rs)
 
 ```rust
 pub fn handler(ctx: Context<InitializeFanoutV0>, args: InitializeFanoutArgsV0) -> Result<()> {
   let signer_seeds: &[&[&[u8]]] = &[&[b"fanout", args.name.as_bytes(), &[ctx.bumps.fanout]]];
 
+/*
+This mints 1 token to the fanout token account in the form of a NFT collection to represent shares.
+*/
   token::mint_to(
     CpiContext::new_with_signer(
       ctx.accounts.token_program.to_account_info(),
@@ -128,6 +130,9 @@ pub fn handler(ctx: Context<InitializeFanoutV0>, args: InitializeFanoutArgsV0) -
     1,
   )?;
 
+/*
+This creates metadata for wallets to recognize the collection.
+*/
   create_metadata_accounts_v3(
     CpiContext::new_with_signer(
       ctx
@@ -162,6 +167,9 @@ pub fn handler(ctx: Context<InitializeFanoutV0>, args: InitializeFanoutArgsV0) -
     Some(CollectionDetails::V2 { padding: [0; 8] }),
   )?;
 
+/*
+This allows for supply control of the NFT collection.
+*/
   create_master_edition_v3(
     CpiContext::new_with_signer(
       ctx
@@ -185,6 +193,9 @@ pub fn handler(ctx: Context<InitializeFanoutV0>, args: InitializeFanoutArgsV0) -
     Some(0),
   )?;
 
+/*
+This part initializes all state variables to track tokens and authority.
+*/
   ctx.accounts.fanout.set_inner(FanoutV0 {
     authority: ctx.accounts.authority.key(),
     token_account: ctx.accounts.token_account.key(),
@@ -202,6 +213,8 @@ pub fn handler(ctx: Context<InitializeFanoutV0>, args: InitializeFanoutArgsV0) -
   Ok(())
 }
 ```
+
+Essentially, this function serves to set up the process for a smart contract to distribute tokens amongst a group. It utilizes NFTs to represent the flow of tokens being distributed. This function overall initializes a fanout pool to later distribute token accordingly.
 
 
 
