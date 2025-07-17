@@ -218,5 +218,6 @@ This part initializes all state variables to track tokens and authority.
 
 Essentially, this function serves to set up the process for a smart contract to distribute tokens amongst a group. It utilizes NFTs to represent the flow of tokens being distributed. This function overall initializes a fanout pool to later distribute token accordingly. This function enables the Rewards Oracle to actually split and distribute the HNT in a way that matches Solana’s on-chain design.
 
-
+---
+## Brave Browser (BAT - Basic Attention Token):
 
