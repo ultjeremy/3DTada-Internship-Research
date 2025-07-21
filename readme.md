@@ -221,3 +221,4 @@ Essentially, this function serves to set up the process for a smart contract to 
 ---
 ## Brave Browser (BAT - Basic Attention Token):
 
+Brave Browser built BAT on the Etherium blockchain and uses the ERC-20 token standard. Main functions mostly consist of methods to manage token balances. All token transfers and activities occur on-chain, including the execution of smart contract logic. The management of user data 
