@@ -260,6 +260,8 @@ function transfer(address _to, uint256 _value) returns (bool success) {
     }
 ```
 
+This function makes sure to check that the balance of the caller and the user is both nonnegative and greater than the transfer value. Secondly, the function makes sure to use the Transfer event to log that a transfer has been successfully made. If any part of the function's conditions fail, the entire execution is dropped.
+
 ### Simple Smart Contract Example:
 
 The following code is a very small example of a smart contract showing how it is possible to transfer BAT tokens to a different account's address.
