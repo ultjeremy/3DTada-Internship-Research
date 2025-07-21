@@ -242,3 +242,16 @@ function allowance(address _owner, address _spender) public view returns (uint25
 event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
+
+### Simple Smart Contract Example:
+
+The following code is a very small example of a smart contract showing how it is possible to transfer BAT tokens to a different account's address.
+
+```solidity
+address userAddress = 0xA579BC48B953204118899BC98cbfBB372eCaD982;
+uint256 amount = 1;
+IERC20 batToken = IERC20(0x0D8775F648430679A709E98d2b0Cb6250d2887EF);
+batToken.transfer(userAddress, amount);
+```
+
+The first and second line are just variable declarations for a user's address and a token amount. The third line creates a reference to the official BAT token created with the `ERC-20` token standard. The fourth line calls the `transfer` method from the BAT smart contract implementation and runs it on the given userAddress and amount. 
