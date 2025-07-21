@@ -274,3 +274,6 @@ batToken.transfer(userAddress, amount);
 ```
 
 The first and second line are just variable declarations for a user's address and a token amount. The third line creates a reference to the official BAT token created with the `ERC-20` token standard. The fourth line calls the `transfer` method from the BAT smart contract implementation and runs it on the given userAddress and amount. 
+
+---
+## Axie Infinity (AXS / SLP):
