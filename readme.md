@@ -393,3 +393,6 @@ contract AxieCore is AxieERC721 {
 ```
 
 Every Axie has different genes which determine its characteristics, and a creation time. An `axies` array stores Axies and indexes them by their Token ID. There are four events for Axies that log different parts of the lifecycles of Axies. When the contract is first deployed, a placeholder Axie is created at index zero, followed by four preset Axies. There are five main operations with Axies that can be executed, being getting, spawning, rebirthing, retiring, and evolving Axies.
+
+---
+## Chiliz (CHZ) / Socios.com:
