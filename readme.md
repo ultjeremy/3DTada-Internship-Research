@@ -278,9 +278,11 @@ The first and second line are just variable declarations for a user's address an
 ---
 ## Axie Infinity (AXS / SLP):
 
-Both AXS and SLP are built using the ERC-20 token standard, through the use of smart contracts. Axie Infinity now operates on an Etherium side-chain called Ronin, developed by Axie Infinity's creator, Sky Mavis. AXS largely operates on chain through smart contracts to implement transfers, governance, and staking.
+Both AXS and SLP are built using the ERC-20 token standard, through the use of smart contracts. Axie Infinity now operates on an Etherium side-chain called Ronin, developed by Axie Infinity's creator, Sky Mavis. AXS largely operates on chain through smart contracts to implement transfers, governance, and staking. SLP is slightly more complicated in that SLP rewards from gameplay are generated off-chain with game logic, but transferred to the user's Ronin wallet on-chain. Additionally, SLP burns from breeding are triggered off-chain through game logic but actually burned on-chain.
 
 ### Core Axie Logic:
+
+The following is taken from the official Axie Infinity GitHub page, linked [[here]](https://github.com/axieinfinity/public-smart-contracts/blob/master/contracts/marketplace/AxieClockAuction.sol). This is a smart contract that represents the core logic for Axie NFTs.
 
 ```solidity
 pragma solidity ^0.4.19;
