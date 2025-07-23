@@ -395,4 +395,8 @@ contract AxieCore is AxieERC721 {
 Every Axie has different genes which determine its characteristics, and a creation time. An `axies` array stores Axies and indexes them by their Token ID. There are four events for Axies that log different parts of the lifecycles of Axies. When the contract is first deployed, a placeholder Axie is created at index zero, followed by four preset Axies. There are five main operations with Axies that can be executed, being getting, spawning, rebirthing, retiring, and evolving Axies.
 
 ---
-## Chiliz (CHZ) / Socios.com:
+## Chiliz (CHZ) / [Socios.com]():
+
+CHZ was built using the ERC-20 token standard. It still exists on Ethereum and also on BEP-2 on the Binance Smart Chain, but its core utility is now on Chiliz Chain 2.0, a custom Ethereum Virtual Machine (EVM) chain. Fan Tokens follow the ERC-20 conventions but are built on the custom Chiliz Chain 2.0. Each Fan Token is a unique smart contract with a limited supply, associated with a specific sports club.
+
+For CHZ, mainly transfers, gas fees, burning, and buying Fan Tokens occur on-chain. The main off-chain activity related to CHZ is the purchase of CHZ itself, which usually occurs on other crypto exchanges like Binance. For Fan Tokens, the original minting happened on the Chiliz Chain 2.0. Trading, transferring, and the process of recording votes happens on-chain. Occasionally, Fan Tokens are burned, and that happens on-chain. The implementation of voting results happens off-chain, alongside most use cases of the Fan Token itself. Some more examples include the redemption of physical or digital prizes and the access to mini-games or trivia on [Socios.com]().
