@@ -402,3 +402,37 @@ CHZ was built using the ERC-20 token standard. It still exists on Ethereum and a
 For CHZ, mainly transfers, gas fees, burning, and buying Fan Tokens occur on-chain. The main off-chain activity related to CHZ is the purchase of CHZ itself, which usually occurs on other crypto exchanges like Binance. For Fan Tokens, the original minting happened on the Chiliz Chain 2.0. Trading, transferring, and the process of recording votes happens on-chain. Occasionally, Fan Tokens are burned, and that happens on-chain. The implementation of voting results happens off-chain, alongside most use cases of the Fan Token itself. Some more examples include the redemption of physical or digital prizes and the access to mini-games or trivia on [Socios.com](Socios.com).
 
 8.888 billion CHZ was originally minted in 2018, and there is generally no more minting that occurs for the token. The token is occasionally burned, with no concrete or rigid plan on how much CHZ is burned at any given time. When it is burned, generally a percentage of CHZ spent on Fan Tokens is burned. There are additionally burns from trading fees or based on tokens redeemed for rewards. For Fan Tokens, a fixed amount is minted at the beginning of a partnership between [Socios.com](Socios.com) and generally isn't minted after creation. Occasionally, and depening on the sports club, Fan Tokens may be burned when used for redemption purposes. Generally, for both tokens, burning is small compared to the total supply of tokens, as to not "over-deflate" supply.
+
+### Chiliz Token Burning:
+
+The following is an example of the Chiliz token burning mechanic from [Etherscan](https://etherscan.io/token/0x3506424f91fd33084466f402d5d97f05f8e3b4af#code).
+
+```solidity
+  function _burn(address account, uint256 value) internal {
+    require(account != 0);
+    require(value <= _balances[account]);
+
+    _totalSupply = _totalSupply.sub(value);
+    _balances[account] = _balances[account].sub(value);
+    emit Transfer(account, address(0), value);
+  }
+```
+
+The burn function takes in an `account` address, and a `value` that indicates how much CHZ will be burned from said account. The `account` address can't be 0 and the `value` must be less than or equal to the balance of said `account`. Both the total supply of CHZ and balance of the account holder gets deducted by `value`, and an event is emitted to log the transaction.
+
+### Chiliz Token Transfer:
+
+Unlike many internal transfer implementations with ERC-20 tokens, the Chiliz transfer function allows for the specification of a source address and a receiving address. The following is another excerpt from the Chiliz smart contract found on [Etherscan](https://etherscan.io/token/0x3506424f91fd33084466f402d5d97f05f8e3b4af#code).
+
+```solidity
+  function _transfer(address from, address to, uint256 value) internal {
+    require(value <= _balances[from]);
+    require(to != address(0));
+
+    _balances[from] = _balances[from].sub(value);
+    _balances[to] = _balances[to].add(value);
+    emit Transfer(from, to, value);
+  }
+```
+
+The function takes in a `from` source address and a destination `to` address, alongside a `value` of how much CHZ to transfer. The `value` must be less than or equal to the balance of the source address, and the destination address must be valid. Once those conditions are met, the balance of the source account is deducted by `value` while the balance of the destination `to` account is increased by `value`. Then, the event is emitted.
