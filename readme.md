@@ -223,6 +223,8 @@ Essentially, this function serves to set up the process for a smart contract to 
 
 Brave Browser built BAT on the Etherium blockchain and uses the ERC-20 token standard. Main functions mostly consist of methods to manage token balances. All token transfers and activities occur on-chain, including the execution of smart contract logic. The management of user data is handled off-chain in order to preserve the user's privacy. While BAT does track user information to personalize ads, the personal information of the user does not ever leave the user's device.
 
+BAT was initally pre-minted with a supply of 1.5 billion tokens. No more BAT is minted, and BAT is rarely burned. There are some rare occasions of burning events, but burning does not happen on a regular basis, nor is much supply burned. The circulation of BAT is dependent on the inital minting before launch.
+
 ### ERC-20 Token Standard:
 
 In order to be considered to be an ERC-20 token, BAT implemented the following functions and events:
