@@ -273,7 +273,7 @@ IERC20 batToken = IERC20(0x0D8775F648430679A709E98d2b0Cb6250d2887EF);
 batToken.transfer(userAddress, amount);
 ```
 
-The first and second line are just variable declarations for a user's address and a token amount. The third line creates a reference to the official BAT token created with the `ERC-20` token standard. The fourth line calls the `transfer` method from the BAT smart contract implementation and runs it on the given userAddress and amount. 
+The first and second line are just variable declarations for a user's address and a token amount. The third line creates a reference to the official BAT token created with the `ERC-20` token standard. The fourth line calls the `transfer` method from the BAT smart contract implementation and runs it on the given `userAddress` and `amount`. 
 
 ### BAT JavaScript Example:
 
