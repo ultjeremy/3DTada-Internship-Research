@@ -275,6 +275,33 @@ batToken.transfer(userAddress, amount);
 
 The first and second line are just variable declarations for a user's address and a token amount. The third line creates a reference to the official BAT token created with the `ERC-20` token standard. The fourth line calls the `transfer` method from the BAT smart contract implementation and runs it on the given userAddress and amount. 
 
+### BAT JavaScript Example:
+
+```javascript
+import { InfuraProvider, Contract, formatUnits } from "ethers";
+
+const INFURA_PROJECT_ID = "add49bab3a884c36b2db18931bc1969b";
+
+const provider = new InfuraProvider("mainnet", INFURA_PROJECT_ID);
+
+const BAT_ADDRESS = "0x0D8775F648430679A709E98d2b0Cb6250d2887EF";
+
+// Minimal ERC-20 ABI
+const abi = [
+  "function balanceOf(address owner) view returns (uint256)"
+];
+
+const address = "0x742d35Cc6634C0532925a3b844Bc454e4438f44e";
+
+async function main() {
+  const contract = new Contract(BAT_ADDRESS, abi, provider);
+  const balance = await contract.balanceOf(address);
+  console.log(`BAT balance of ${address}: ${formatUnits(balance, 18)} BAT`);
+}
+
+main().catch(console.error);
+```
+
 ---
 ## Axie Infinity (AXS / SLP):
 
