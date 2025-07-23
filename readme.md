@@ -277,6 +277,8 @@ The first and second line are just variable declarations for a user's address an
 
 ### BAT JavaScript Example:
 
+The following is a basic example of using the `ethers.js` library alongside the MetaMask developer tool to check the BAT balance of a user wallet. The user we are checking is Bitfinex, a major cryptocurrency exchange. Basically, through MetaMask, we are calling the Ethereum blockchain to check the balance of a public and popular test address.
+
 ```javascript
 import { InfuraProvider, Contract, formatUnits } from "ethers";
 
@@ -301,6 +303,13 @@ async function main() {
 
 main().catch(console.error);
 ```
+
+Result:
+```
+BAT balance of 0x742d35Cc6634C0532925a3b844Bc454e4438f44e: 1915064.65929 BAT
+```
+
+We import necessary tools from the `ethers.js` library, take in the official BAT address, create a provider to read blockchain data, and use the ABI (Application Binary Interface) to inform `ethers.js` of our `balanceOf()` function. We then create a contract instance and call the `balanceOf()` function on the BAT contract we created, then printing the balance formatted for human viewing to the console.
 
 ---
 ## Axie Infinity (AXS / SLP):
