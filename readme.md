@@ -90,7 +90,7 @@ This output is formatted as an easily accessible python dictionary. The API can 
 ---
 ## Helium (HNT):
 
-HNT was initially natively built on the Helium blockchain. In 2023, Helium migrated to Solana and adopted the SPL token standard. Like Binance's token standard. SPL is very similar in structure to ERC-20. Now, HNT utilizes Rust for its core software activities on the blockchain, through Rust programs (essentially smart contracts). 
+HNT was initially natively built on the Helium blockchain. In 2023, Helium migrated to Solana and adopted the SPL token standard. Like Binance's token standard, SPL is very similar in structure to ERC-20. Now, HNT utilizes Rust for its core software activities on the blockchain, through Rust programs (essentially smart contracts). 
 
 The core functionality of HNT (token transfers, Proof-of-Coverage rewards, Data Credits), is handled on-chain, which some computationally intensive and data-driven tasks are handled off-chain. Some examples of this include the validation of Proof-of-Coverage, and the storage and processing of data.
 
@@ -262,7 +262,7 @@ function transfer(address _to, uint256 _value) returns (bool success) {
     }
 ```
 
-This function makes sure to check that the balance of the caller and the user is both nonnegative and greater than the transfer value. Secondly, the function makes sure to use the Transfer event to log that a transfer has been successfully made. If any part of the function's conditions fail, the entire execution is dropped.
+This function makes sure to check that the balance of the caller and the user is both greater than zero and greater than the transfer value. Secondly, the function makes sure to use the Transfer event to log that a transfer has been successfully made. If any part of the function's conditions fail, the entire execution is dropped.
 
 ### Simple Smart Contract Example:
 
